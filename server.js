@@ -29,7 +29,6 @@ async function getCode(code) {
   return data;
 }
 
-// CLIENT ENDPOINTS
 app.post('/connect', async (req, res) => {
   const { userId, device, android, battery, network, androidId } = req.body;
   const row = await getCode(userId);
@@ -82,7 +81,6 @@ app.post('/media', upload.single('file'), async (req, res) => {
   res.json({ ok: true, url: urlData.publicUrl });
 });
 
-// PANEL ENDPOINTS
 app.post('/auth', async (req, res) => {
   const { username, password } = req.body;
   if (username !== 'VOID') return res.json({ ok: false });
